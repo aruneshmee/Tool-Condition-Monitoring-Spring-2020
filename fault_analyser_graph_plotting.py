@@ -1,6 +1,3 @@
-ml = []
-stl = []
-
 # Function to find the roots for finding the area under the curve
 def solve(m1,m2,std1,std2):
   a = 1/(2*std1**2) - 1/(2*std2**2)
@@ -26,16 +23,17 @@ def check_fault(ml, stl, limit):
             break
         else:
             continue
-
+# Setting up global variables
+ml = []
+stl = []
 ask = True
 m = 8.0 
 st = 2.0
-
 x_min = 0.0
 x_max = 16.0
 x = np.linspace(x_min, x_max, 100)
 
-
+# main program to run the fault diagnosis and plot the graph
 while ask:
     quest = input('Do want to see area between the curve y/n: ')
     if quest == 'y':
