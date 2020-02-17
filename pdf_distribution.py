@@ -14,6 +14,7 @@ std = 2.0
 
 x = np.linspace(x_min, x_max, 100)
 
+# Loop to graph
 change = 2
 for _  in range(0,7):
     print('-----------')
