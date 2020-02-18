@@ -11,4 +11,4 @@ Develop an intelligent real-time hard labor safety monitoring system, incorporat
 Purpose: To save downtime required to repair or even replace the machine due to an unexpected failure or technical fault. Knowing the health of the machine before hand may help in periodic mantainance and help to save time and money. 
 
 ## Test 1 details:
-Data Description: Waiting for Updates
+Description: The data is acquired from a hydrolic pressured injection. It data contains 9803 rows and 59 columns. Each columns representing one of the features of the hydrolic machine.
