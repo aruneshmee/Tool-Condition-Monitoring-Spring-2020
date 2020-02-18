@@ -12,3 +12,4 @@ Purpose: To save downtime required to repair or even replace the machine due to 
 
 ## Test 1 details:
 Description: The data is acquired from a hydrolic pressured injection. It data contains 9803 rows and 59 columns. Each columns representing one of the features of the hydrolic machine.
+Documnetation: The dataset was first cleaned by converting the Pressure column into 0 and 1 (Good and Bad). All the values above 500 were coverted into 0 and all the below it as 1. Moreover, 6 columns had the same value in all its rows so the the columns were removed as they didn't contributed anything to the problem
