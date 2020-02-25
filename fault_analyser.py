@@ -33,3 +33,12 @@ def generating_heatmap():
     # Saving image
     figure = svm.get_figure()    
     return figure.savefig('heatmap_hydrolic_press.png', dpi=400)
+
+# Section 2: Generate graph of each feature 
+def  generate_graph():
+    graph = 1
+    for _ in range(0, num_col-2):
+        data.plot.scatter(x='1',y=data.columns[graph],c='Result',cmap='coolwarm')
+        plt.title('Scatter Plot: ' + data.columns[graph])
+        plt.show()
+        graph+=1
