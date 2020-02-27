@@ -145,3 +145,54 @@ def apply_ML(num_col):
     print('Incorrect Predictions: ', incorrect)
     print('Accuracy achieved: {0:.2f}'.format(correct/total*100))
     
+def running_program():
+    
+    # Features of the program
+    
+    print('','-'*25)
+    print('| Fault Analyser Features |')
+    print('','-'*25)
+    print('**** Important - Only enter Integer ****\n')
+    print('For finding Correlation between all the features >>> Press 1\n')
+    print('For top 10 most correlated features list >>> Press 2\n')
+    print('For graphing scatter plots >>> Press 3\n')
+    print('For plotting pdf of each feature >>> Press 4\n')
+    print('For Statistical analysis of all the features >>> Press 5\n')
+    print('For Machine Learning Results >>> Press 6\n')
+    print('~ ~ ~ ~ ~  To quit the program >>> Press 0\n')
+
+    # Importing dataset
+    data_inp = input('Enter the name of the file, include .csv :')
+    data = pd.read_csv(data_inp)
+    
+    # Global Variables
+    df = pd.DataFrame(data)
+    num_col=len(df.axes[1])
+    num_row=len(df.axes[0])
+    
+    ask = True
+
+    while ask:
+        print('-'*100, '\n')
+        quest = int(input('What would you like to do? '))
+        print(' ')
+        
+        if quest==1:
+            print('\nHeatmap processing...... it may take a few seconds\n')
+            generating_heatmap()
+            print('Image saved successfully to the directory with name *heatmap* in program directory!\n')
+        elif quest==2:
+            top_10_feat()
+        elif quest==3:
+            generate_graph()
+        elif quest==4:
+            plotting_pdf(num_col)
+        elif quest==5:
+            print(data.describe())
+        elif quest==6:
+            apply_ML(num_col)
+        elif quest==0:
+            ask=False
+            print('\nEnd of program!')
+        else:
+            print('Wrong Input.....Try again\n')
