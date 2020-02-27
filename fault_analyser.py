@@ -82,3 +82,66 @@ def print_top_10_feat():
     print('------  TOP 10 Linearly Correlated features -------\n')
     print(get_top_abs_correlations(df))
 
+# Section 4: Plotting PDF for each feature
+def plotting_pdf(num_col):
+    # Grpah 1
+    col = 1
+    for _ in range(0, num_col-2):
+        x = data.iloc[:,col].values
+        M = ss.mean(x) #Mean of the column
+        STD = np.std(x) #Standard Deviation of the colum
+        y = norm.pdf(x, M, STD)
+        plt.plot(x, y)
+        plt.title('PDF curve for ' + data.columns[col])
+        plt.xlabel('Distribution')
+        plt.show()
+        col+=1
+  
+# Section 5: Applying Machine Learning alg to the data
+def apply_ML(num_col):
+    # Dividing the data into X and Y arrays
+    num_col -= 2
+    X = data.iloc[:, 0: num_col].values
+    y = data.iloc[:, -1].values
+
+    # Splitting the dataset into the Training set and Test set
+    from sklearn.model_selection import train_test_split
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 0)
+
+    # Feature Scaling
+    from sklearn.preprocessing import StandardScaler
+    sc = StandardScaler()
+    X_train = sc.fit_transform(X_train)
+    X_test = sc.transform(X_test)
+
+    # Applying PCA where n = 3
+    from sklearn.decomposition import PCA
+    pca = PCA(n_components = 3)
+    X_train = pca.fit_transform(X_train)
+    X_test = pca.transform(X_test)
+    explained_variance = pca.explained_variance_ratio_
+
+    # Fitting Decision Tree DT Classification to the Training set
+    # Logistic regression can also be applied instead DT
+    from sklearn.tree import DecisionTreeClassifier
+    classifier = DecisionTreeClassifier(criterion = 'entropy', random_state = 0)
+    classifier.fit(X_train, y_train)
+
+    # Predicting the Test set results
+    y_pred = classifier.predict(X_test)
+
+    # Making the Confusion Matrix
+    # Top left and bottom right give correctly predicted values
+    # Top Right and bottom left give values that were predicted wrong
+    from sklearn.metrics import confusion_matrix
+    cm = confusion_matrix(y_test, y_pred)
+    
+    correct = (cm[0][0] + cm[1][1])
+    incorrect = (cm[0][1] + cm [1][0])
+    total = correct + incorrect
+    print('--- Machine Learning results ---\n')
+    print('Total Observations: ', total)
+    print('Correct predictions: ', correct)
+    print('Incorrect Predictions: ', incorrect)
+    print('Accuracy achieved: {0:.2f}'.format(correct/total*100))
+    
