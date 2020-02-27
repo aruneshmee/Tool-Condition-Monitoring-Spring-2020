@@ -36,12 +36,29 @@ def generating_heatmap():
 
 # Section 2: Generate graph of each feature 
 def  generate_graph():
-    graph = 1
-    for _ in range(0, num_col-2):
-        data.plot.scatter(x='1',y=data.columns[graph],c='Result',cmap='coolwarm')
-        plt.title('Scatter Plot: ' + data.columns[graph])
-        plt.show()
-        graph+=1
+    
+    plot = True
+    while plot:
+        quest = int(input('Type the column number you want to plot or type 999 for plotting every graph or type 1234 to quit: '))
+        if quest == 999:
+            graph = 1
+            for _ in range(0, num_col-2):
+                data.plot.scatter(x='1',y=data.columns[graph],c='Result',cmap='coolwarm')
+                plt.title('Scatter Plot: ' + data.columns[graph])
+                plt.show()
+                graph+=1
+
+        elif quest < num_col:
+            data.plot.scatter(x='1', y=data.columns[quest], c='Result', cmap='coolwarm')
+            plt.title('Scatter Plot: ' + data.columns[quest])
+            plt.show()
+            
+        elif quest == 1234:
+            plot = False
+
+        else:
+            print('Incorrect Column number... try again')
+
      
 # Section 3: Finding out top correlated features
 def print_top_10_feat():
