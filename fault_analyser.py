@@ -32,7 +32,7 @@ def generating_heatmap():
 
     # Saving image
     figure = svm.get_figure()    
-    return figure.savefig('heatmap_hydrolic_press.png', dpi=400)
+    return figure.savefig('heatmap.png', dpi=400)
 
 # Section 2: Generate graph of each feature 
 def  generate_graph():
