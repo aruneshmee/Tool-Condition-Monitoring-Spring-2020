@@ -1,6 +1,6 @@
-# Coop_Singapore
+#  Tool Condition Monitoring (TCM)
 
-Develop an intelligent real-time hard labor safety monitoring system, incorporating Artificial Intelligence analytics for early fault detection and diagnosis. In simple terms, acquire daignosos data from a machine for eg car engine and use machine learning to predict when is the engine highly likely to break down.
+Develop an intelligent real-time hard labor safety monitoring system, incorporating Artificial Intelligence analytics for early fault detection, diagnosis and prognosis. In simpler terms, acquire daignosos data from a machine for eg car engine and use analyse current condition of the machine and use machine learning to predict when is the engine highly likely to break down.
 
 - Step 1: Acquire the data
 - Step 2: Cleaning/Preprocessing of the dataset
