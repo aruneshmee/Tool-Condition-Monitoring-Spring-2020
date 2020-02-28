@@ -196,3 +196,5 @@ def running_program():
             print('\nEnd of program!')
         else:
             print('Wrong Input.....Try again\n')
+
+running_program()
