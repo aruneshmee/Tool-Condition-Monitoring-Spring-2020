@@ -35,7 +35,7 @@ def generating_heatmap():
     figure = svm.get_figure()    
     return figure.savefig('heatmap.png', dpi=400)
 
-# Section 2: Generate graph of each feature 
+# Section 2: Generate graph of each feature from the input
 def  generate_graph():
     
     plot = True
